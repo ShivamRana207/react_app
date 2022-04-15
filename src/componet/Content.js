@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 import React, { Component } from 'react'
 import Items from './Items'
 export class Content extends Component {
@@ -272,7 +270,12 @@ export class Content extends Component {
             articles: this.articles
         }
     }
-
+   async componentDidMount(){
+       let url = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f";
+       let data=  await fetch(url);
+       let parsedData = await data.json();
+       this.setState({articles: parsedData.articles});
+   } 
 
     render() {
 
