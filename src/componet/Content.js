@@ -11,36 +11,36 @@ export class Content extends Component {
         }
     }
     async componentDidMount() {
-        let url = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=1";
+        let url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=${this.state.page}&pageSize=6`;
         let data = await fetch(url);
         let parsedData = await data.json();
+        console.log(parsedData);
         this.setState({
-            page: this.page,
+            page: this.state.page,
             articles: parsedData.articles,
             totalResults: parsedData.totalResults
         });
     }
     handlenext = async () => {
-        if(this.page +1 >  Math.ceil(this.totalResults/10)){
 
-        }
-        else
-        {let url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=${this.page + 1}&pagesize=10`;
+        console.log(" handlenext clicked")
+        let url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=${this.state.page+1}1&pageSize=6`;
         let data = await fetch(url);
         let parsedData = await data.json();
+        
         this.setState({
-            page: this.page + 1,
+            page: this.state.page + 1,
             articles: parsedData.articles
-        })};
+        });
     }
     handlepre = async () => {
-        
-        
-        let url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=${this.page - 1}`;
+
+
+        let url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=c9233111fe6c4dafa7f796e345798c9f&page=${this.state.page - 1}&pageSize=6`;
         let data = await fetch(url);
         let parsedData = await data.json();
         this.setState({
-            page: this.page - 1,
+            page: this.state.page - 1,
             articles: parsedData.articles
         });
 
@@ -56,7 +56,7 @@ export class Content extends Component {
                     </div>)}
                 </div>
                 <div className="container d-flex justify-content-between">
-                    <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlepre}>&larr;Previous</button>
+                    <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlepre}>&larr;Previous</button>
                     <button type="button" className="btn btn-dark" onClick={this.handlenext}>Next&rarr;</button>
 
                 </div>
