@@ -82,7 +82,8 @@ export class Content extends Component {
 
                 <div className="row">
                     { this.state.articles.map((element) => <div className="col-md-auto" key={element.url}>
-                        <Items title={element.title.slice(0, 40)} imageurl={element.urlToImage} newsurl={element.url} />
+                        <Items title={element.title.slice(0, 40)} imageurl={element.urlToImage} newsurl={element.url} auther={element.author} date={element.publishedAt.slice(0,10)}
+                        source={element.source.name} />
                     </div>)}
                 </div>
                 <div className="container d-flex justify-content-between">
