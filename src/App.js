@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 export default class App extends Component {
   render() {
@@ -16,13 +15,13 @@ export default class App extends Component {
         <Router>
           <Navbar />
           <Switch>
-          <Route path="/"> <Content PageSize={21} country="in" category=""general/> </Route>
-          <Route path="/business"> <Content PageSize={21} country="in" category="business"/> </Route>
-          <Route path="/entertainment"> <Content PageSize={21} country="in" category="entertainment"/> </Route>
-          <Route path="/health"> <Content PageSize={21} country="in" category="health"/> </Route>
-          <Route path="/techogynol"> <Content PageSize={21} country="in" category="techogynol"/> </Route>
-          <Route path="/science"> <Content PageSize={21} country="in" category="science"/> </Route>
-          <Route path="/sports"> <Content PageSize={21} country="in" category="sports"/> </Route>
+          <Route exact path="/"> <Content PageSize={21} key="general" country="in" category="general"/> </Route>
+          <Route exact path="/business"> <Content PageSize={21} key="business" country="in" category="business"/> </Route>
+          <Route exact path="/entertainment"> <Content PageSize={21} key="entertainment" country="in" category="entertainment"/> </Route>
+          <Route exact path="/health"> <Content PageSize={21} key="health" country="in" category="health"/> </Route>
+          <Route exact path="/techogynol"> <Content PageSize={21} key="techogynol" country="in" category="techogynol"/> </Route>
+          <Route exact path="/science"> <Content PageSize={21} key="science" country="in" category="science"/> </Route>
+          <Route exact path="/sports"> <Content PageSize={21} key="sports" country="in" category="sports"/> </Route>
             
            
         </Switch>
