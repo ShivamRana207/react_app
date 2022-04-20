@@ -16,7 +16,6 @@ export class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <Link className="nav-link" aria-current="page" to="/">Home</Link>
-              <Link className="nav-link" to="/general">General</Link>
               <Link className="nav-link" to="/business">Business</Link>
               <Link className="nav-link" to="/entertainment">Entertainment</Link>
               <Link className="nav-link" to="/health">Health</Link>
